@@ -3,6 +3,7 @@
     "watch:scss": "node-sass -w QuoteMachine/styles.scss QuoteMachine/styles.css"
   },
   "dependencies": {
+    "bootstrap-icons": "^1.11.3",
     "node-sass": "^9.0.0"
   }
 }
