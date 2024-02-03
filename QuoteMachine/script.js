@@ -3,7 +3,7 @@ let firstLoad = true
 $(document).ready(function () {
     $(`#container`).css(`opacity`, 0);
 
-    $(`#quote-box`).append(
+    $(`#inner-text`).append(
         `<h2 id='text'></h2>`,
         `<h3 id='author'></h3>`
     );
@@ -31,13 +31,13 @@ function getQuotes() {
                 $(`#text`).append(`<i class="fa fa-quote-left"></i> ${result.content}<i class="fa fa-quote-right"></i>`)
                 $(`#author`).text(`- ${result.author}`);
             } else {
-                $(`#text`).animate({ opacity: 0 }, 600, function () {
+                $(`#text, #author`).animate({ opacity: 0 }, 600, function () {
                     if ($(text).css(`opacity`) == 0) {
                         $(`#text`).empty();
                         $(`#author`).empty();
                         $(`#tweet-quote`).attr(`href`, `https://twitter.com/intent/tweet?text=${result.content} - ${result.author}`);
                         $(`#text`).append(`<i class="fa fa-quote-left"></i> ${result.content}<i class="fa fa-quote-right"></i>`)
-                        $(`#text`).animate({ opacity: 1 }, 500);
+                        $(`#text, #author`).animate({ opacity: 1 }, 500);
                         $(`#author`).text(`- ${result.author}`);
                     }
                 })
