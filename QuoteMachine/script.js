@@ -1,8 +1,4 @@
-let firstLoad = true
-
 $(document).ready(function () {
-    $(`#container`).css(`opacity`, 0);
-
     $(`#inner-text`).append(
         `<h2 id='text'></h2>`,
         `<h3 id='author'></h3>`
@@ -16,32 +12,36 @@ $(document).ready(function () {
     $(`#new-quote`).click(function () {
         getQuotes();
     });
-
-    getQuotes();
+    buildPage()
 });
+
+const buildPage = () => {
+    let firstQuote = {
+        content: `Understanding someone's suffering is the best gift you can give another person. Understanding is love's other name. If you don't understand, you can't love.`,
+        author: `Tich Nhat Hanh`
+    }
+    $(`#text`).append(`<i class="fa fa-quote-left"></i> ${firstQuote.content}<i class="fa fa-quote-right"></i>`)
+    $(`#author`).text(`- ${firstQuote.author}`);
+    $(`#tweet-quote`).attr(`href`, `https://twitter.com/intent/tweet?text=${firstQuote.content} - ${firstQuote.author}`);
+    let randomColor = colors[Math.floor(Math.random() * colors.length)]
+    $(`#new-quote, #tweet, body`).css({ backgroundColor: randomColor });
+    $(`#text, #author`).css({ color: randomColor });
+}
 
 function getQuotes() {
     $.ajax({
         url: `https://api.quotable.io/random`,
         success: function (result) {
-            if (firstLoad === true) {
-                firstLoad = false;
-                $(`#container`).animate({ opacity: 1 }, 1500)
-                $(`#tweet-quote`).attr(`href`, `https://twitter.com/intent/tweet?text=${result.content} - ${result.author}`);
-                $(`#text`).append(`<i class="fa fa-quote-left"></i> ${result.content}<i class="fa fa-quote-right"></i>`)
-                $(`#author`).text(`- ${result.author}`);
-            } else {
-                $(`#text, #author`).animate({ opacity: 0 }, 600, function () {
-                    if ($(text).css(`opacity`) == 0) {
-                        $(`#text`).empty();
-                        $(`#author`).empty();
-                        $(`#tweet-quote`).attr(`href`, `https://twitter.com/intent/tweet?text=${result.content} - ${result.author}`);
-                        $(`#text`).append(`<i class="fa fa-quote-left"></i> ${result.content}<i class="fa fa-quote-right"></i>`)
-                        $(`#text, #author`).animate({ opacity: 1 }, 500);
-                        $(`#author`).text(`- ${result.author}`);
-                    }
-                })
-            }
+            $(`#text, #author`).animate({ opacity: 0 }, 600, function () {
+                if ($(text).css(`opacity`) == 0) {
+                    $(`#text`).empty();
+                    $(`#author`).empty();
+                    $(`#tweet-quote`).attr(`href`, `https://twitter.com/intent/tweet?text=${result.content} - ${result.author}`);
+                    $(`#text`).append(`<i class="fa fa-quote-left"></i> ${result.content}<i class="fa fa-quote-right"></i>`)
+                    $(`#text, #author`).animate({ opacity: 1 }, 500);
+                    $(`#author`).text(`- ${result.author}`);
+                }
+            })
         }
     });
     changeColor();
