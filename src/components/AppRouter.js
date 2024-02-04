@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Home from "../pages/Home";
-import QuoteMachine from "../pages/QuoteMachine";
 import MarkdownPreviewer from '../pages/MarkdownPreviewer';
 import NotFound from '../pages/NotFound';
 import DrumMachine from '../pages/DrumMachine';
@@ -15,7 +14,6 @@ const AppRouter = () => {
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/quote-machine" element={<QuoteMachine />} />
                     <Route path="/markdown-previewer" element={<MarkdownPreviewer />} />
                     <Route path="/drum-machine" element={<DrumMachine />} />
                     <Route path="/calculator" element={<Calculator />} />
