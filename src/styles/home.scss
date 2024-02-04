@@ -1,0 +1,24 @@
+$primary-color: #333;
+
+#links-div>h1 {
+  font-size: 4rem;
+  text-decoration: underline;
+  color: $primary-color;
+}
+
+#links-div>p {
+  margin: 60px;
+}
+
+.link {
+  font-size: 2rem;
+  text-decoration: none;
+  color: $primary-color;
+  transition: color 0.5s ease;
+  transition: font-size 0.5s ease;
+}
+
+.link:hover {
+  color: #1a73e8;
+  font-size: 2.1rem;
+}
