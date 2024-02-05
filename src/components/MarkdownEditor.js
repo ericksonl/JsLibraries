@@ -14,7 +14,7 @@ class Editor extends React.Component {
             .then(response => response.text())
             .then(text => {
                 this.setState({
-                    markdown: marked(text)
+                    markdown: text
                 });
                 console.log("what", text);
             })
