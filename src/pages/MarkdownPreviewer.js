@@ -1,12 +1,11 @@
 import React from 'react';
 import Editor from "../components/MarkdownEditor";
+import '../styles/markdown.scss';
 
 class MarkdownPreviewer extends React.Component {
     render() {
         return (
-            <div>
-                <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
-                <h1>Markdown Previewer</h1>
+            <div id='markdown-wrapper'>
                 <Editor />
             </div >
         );

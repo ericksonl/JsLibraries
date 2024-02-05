@@ -8,10 +8,9 @@ class Editor extends React.Component {
             markdown: ''
         };
     }
-
     //Asycn method to fetch initial markdown text
     componentDidMount() {
-        fetch('https://raw.githubusercontent.com/ericksonl/ericksonl/main/README.md')
+        fetch('https://raw.githubusercontent.com/ericksonl/js-libraries/dev/src/components/MarkdownText.md')
             .then(response => response.text())
             .then(text => {
                 this.setState({
@@ -28,16 +27,23 @@ class Editor extends React.Component {
     handleEditorChange = (event) => {
 
         this.setState({
-            markdown: marked.parse(event.target.value)
+            markdown: event.target.value
         });
     }
 
     render() {
+        const renderedMarkdown = marked(this.state.markdown, { sanitize: true });
         return (
             <>
-                <textarea id="editor" rows="4" cols="50" value={this.state.markdown} onChange={this.handleEditorChange}>
-                </textarea>
-                <div id="preview">{this.state.markdown}</div>
+                <div id='editor-wrapper'>
+                    <h1 id='editor-title'>Markdown</h1>
+                    <textarea id="editor" rows="4" cols="50" value={this.state.markdown} onChange={this.handleEditorChange}>
+                    </textarea>
+                </div>
+                <div id='preview-wrapper'>
+                    <h1 id='preview-title'>Preview</h1>
+                    <div id="preview" dangerouslySetInnerHTML={{ __html: renderedMarkdown }}></div>
+                </div>
             </>
         )
     }
