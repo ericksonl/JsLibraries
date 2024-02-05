@@ -2,13 +2,38 @@
 
 ## Introduction
 
-Welcome to the Markdown Previewer! This tool will automatically convert your input to Markdown syntax. See below for example elements.
+Welcome to the Markdown Previewer! This tool will automatically convert your input to Markdown syntax.
 
-## Markdown Elements
+### Cool syntax stuff:
 
-- **Bold Text:** **This text is bold.**
-- *Italic Text:* *This text is italicized.*
-- **Combined:** ***This text is bold and italicized.***
+Code, `<div></div>`, between 2 backticks.
+
+```
+//Multi-line code
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+```
+
+You can also make text **bold**
+
+Or _italic_.
+
+Or **_both!_**
+
+You can also ~~cross stuff out~~.
+
+### Links and tables
+
+[links](https://www.freecodecamp.org), and
+> Block Quotes work too!
+
+Tables are messy to setup, but you can make them
+
+Header 1 | Header 2 | Header 3
+------------ | ------------- | -------------
+Row 1 Collumn 1 | Row 1 Collumn 2 | Row 1 Collumn 3
+Row 2 Collumn 1 | Row 2 Collumn 2 | Row 2 Collumn 3
 
 ### Lists
 
@@ -20,19 +45,6 @@ Welcome to the Markdown Previewer! This tool will automatically convert your inp
 - Unordered List Item 2
 - Unordered List Item 3
 
-### Links and Images
-
-[Visit Google](https://www.google.com/)
+### Images
 
 ![Random Image](https://placekitten.com/300/200)
-
-### Code
-
-Inline code: `console.log("Hello, Markdown!");`
-
-Code block:
-
-```javascript
-function greet(name) {
-  return `Hello, ${name}!`;
-}
