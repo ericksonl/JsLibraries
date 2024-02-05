@@ -13,16 +13,16 @@ const bodyStyle = {
 
 const Home = () => {
     const navLinks =
-        <body style={bodyStyle}>
+        <div style={bodyStyle}>
             <div id='links-div'>
                 <h1>Quick Links</h1>
-                <p><a class='link' href="./QuoteMachine/">Random Quote Machine</a></p>
-                <p><a class='link' href="./markdown-previewer/">Markdown Previewer</a></p>
-                <p><a class='link' href="./drum-machine/">Drum Machine</a></p>
-                <p><a class='link' href="./calculator/">Calculator</a></p>
-                <p><a class='link' href="./25-5-clock/">25 + 5 Clock</a></p>
+                <p><a className='link' href="./QuoteMachine/">Random Quote Machine</a></p>
+                <p><a className='link' href="./markdown-previewer/">Markdown Previewer</a></p>
+                <p><a className='link' href="./drum-machine/">Drum Machine</a></p>
+                <p><a className='link' href="./calculator/">Calculator</a></p>
+                <p><a className='link' href="./25-5-clock/">25 + 5 Clock</a></p>
             </div>
-        </body>;
+        </div>;
 
     return (
         <>
