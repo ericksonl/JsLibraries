@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+}
+
+#markdown-wrapper {
+    display: flex;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+}
+
+#editor-wrapper,
+#preview-wrapper {
+    flex: 1;
+    padding: 40px 40px 20px 40px;
+    box-sizing: border-box;
+}
+
+#editor-wrapper {
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+#preview-wrapper {
+    background-color: #e0e0e0;
+    text-align: center;
+}
+
+#editor-title,
+#preview-title {
+    color: #333;
+    background-color: #FDD24E;
+    margin-left: 200px;
+    margin-right: 200px;
+    padding: 5px;
+}
+
+#editor,
+#preview {
+    text-align: left;
+    width: 100%;
+    height: 80vh;
+    border: none;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#editor {
+    resize: none;
+}
+
+#preview {
+    overflow-y: auto;
+}
