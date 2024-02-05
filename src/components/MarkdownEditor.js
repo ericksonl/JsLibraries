@@ -35,9 +35,15 @@ class Editor extends React.Component {
         const renderedMarkdown = marked(this.state.markdown, { sanitize: true });
         return (
             <>
-                <textarea id="editor" rows="4" cols="50" value={this.state.markdown} onChange={this.handleEditorChange}>
-                </textarea>
-                <div id="preview" dangerouslySetInnerHTML={{ __html: renderedMarkdown }}></div>
+                <div id='editor-wrapper'>
+                    <h1 id='editor-title'>Markdown</h1>
+                    <textarea id="editor" rows="4" cols="50" value={this.state.markdown} onChange={this.handleEditorChange}>
+                    </textarea>
+                </div>
+                <div id='preview-wrapper'>
+                    <h1 id='preview-title'>Preview</h1>
+                    <div id="preview" dangerouslySetInnerHTML={{ __html: renderedMarkdown }}></div>
+                </div>
             </>
         )
     }
