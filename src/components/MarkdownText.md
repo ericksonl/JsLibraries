@@ -48,3 +48,6 @@ Row 2 Collumn 1 | Row 2 Collumn 2 | Row 2 Collumn 3
 ### Images
 
 ![Random Image](https://placekitten.com/300/200)
+
+
+<h1> Have fun!</h1>
