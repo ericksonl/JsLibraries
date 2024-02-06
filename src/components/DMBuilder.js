@@ -39,7 +39,7 @@ class DMBuilder extends React.Component {
                     ))}
                 </div >
                 <div id='contents'>
-                    <p id='display'></p>
+                    <p id='display'>Drums.io</p>
                 </div>
             </>
         )
