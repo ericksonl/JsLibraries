@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+
+body {
+    background-color: #333;
+}
+
+#drum-machine {
+    margin: 0 auto;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 15px 10px rgba(0, 0, 0, 0.3);
+    border: 5px solid #0062a8;
+    display: flex;
+    margin-top: 300px;
+    height: 300px;
+    width: 600px;
+}
+
+#buttons {
+    width: 200px;
+    height: 300px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.drum-pad {
+    border: none;
+    background-color: #0062a8;
+    border-radius: 15px;
+    padding: 0;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+    transition: box-shadow background-color 0.1s;
+}
+
+.front {
+    display: block;
+    padding: 30px 40px;
+    border-radius: 15px;
+    font-size: 1.25rem;
+    background: #0074c7;
+    color: #fcfcfc;
+    transform: translateY(-6px);
+    transition: transform 0.1s;
+}
+
+.drum-pad:hover {
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.1s;
+}
+
+.drum-pad:active {
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.2s;
+}
+
+.drum-pad:hover .front {
+    background: hsl(205, 100%, 43%);
+    transform: translateY(-10px);
+}
+
+.drum-pad:active .front {
+    transform: translate(0, -4px);
+}
+
+#contents {
+    text-align: center;
+    background-color: #054e7e;
+    margin-left: 160px;
+    border-radius: 20px;
+    margin-bottom: 180px;
+    padding-top: 15px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5) inset;
+    width: 230px;
+}
+
+#display {
+    font-family: "Silkscreen", sans-serif;
+    text-shadow: 0 0 10px #fff, 0 0 40px #fff, 0 0 42px #0fa, 0 0 82px #0fa,
+        0 0 92px #0fa;
+    color: white;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
