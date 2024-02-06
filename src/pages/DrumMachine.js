@@ -1,4 +1,5 @@
 import DMBuilder from "../components/DMBuilder";
+import '../styles/drumMachine.scss';
 
 const DrumMachine = () => {
     return (
