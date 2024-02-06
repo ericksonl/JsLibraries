@@ -5,7 +5,8 @@ class DMBuilder extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            class: 'drum-pad'
+            class: 'drum-pad',
+            keyCode: ''
         };
     }
 
@@ -18,16 +19,27 @@ class DMBuilder extends React.Component {
     render() {
         return (
             <>
-                <div id='contents'>
-                    <p id='display'></p>
-                </div>
                 <div id='buttons'>
                     {Object.keys(KeyComponents).map((key, index) => (
-                        <button key={index} id={KeyComponents[key].id} className={this.state.class} onClick={(event) => this.handleClick(KeyComponents[key].url, KeyComponents[key].id)}>
-                            {KeyComponents[key].keyTrigger}
-                            <audio id={KeyComponents[key].keyTrigger} className='clip' ref={this.audioRef} src={KeyComponents[key].url}></audio>
+                        <button
+                            key={index}
+                            id={KeyComponents[key].id}
+                            className={this.state.class}
+                            onClick={() => this.handleClick(KeyComponents[key].url, KeyComponents[key].id)}
+                        >
+                            <span class="front">
+                                {KeyComponents[key].keyTrigger}
+                            </span>
+                            <audio
+                                id={KeyComponents[key].keyTrigger}
+                                className='clip' ref={this.audioRef}
+                                src={KeyComponents[key].url}
+                            ></audio>
                         </button>
                     ))}
+                </div >
+                <div id='contents'>
+                    <p id='display'>Drums.io</p>
                 </div>
             </>
         )
