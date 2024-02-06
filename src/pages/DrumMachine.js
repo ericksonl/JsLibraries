@@ -1,6 +1,10 @@
+import DMBuilder from "../components/DMBuilder";
+
 const DrumMachine = () => {
     return (
-        <h1>Drum Machine</h1>
+        <div id='drum-machine'>
+            <DMBuilder />
+        </div>
     );
 }
 
