@@ -37,6 +37,7 @@ body {
 
 .front {
     display: block;
+    pointer-events: none;
     padding: 30px 40px;
     border-radius: 15px;
     font-size: 1.25rem;
