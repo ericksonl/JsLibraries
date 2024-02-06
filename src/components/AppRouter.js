@@ -7,6 +7,7 @@ import NotFound from '../pages/NotFound';
 import DrumMachine from '../pages/DrumMachine';
 import Calculator from '../pages/Calculator';
 import TwentyFiveFiveClock from '../pages/TwentyFiveFiveClock';
+import Test from '../pages/test';
 
 const AppRouter = () => {
     return (
@@ -18,6 +19,7 @@ const AppRouter = () => {
                     <Route path="/drum-machine" element={<DrumMachine />} />
                     <Route path="/calculator" element={<Calculator />} />
                     <Route path="/25-5-clock" element={<TwentyFiveFiveClock />} />
+                    <Route path="/test" element={<Test />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </BrowserRouter>
