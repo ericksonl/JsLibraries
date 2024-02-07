@@ -1,4 +1,6 @@
-$font-family: 'Lato', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+$font-family: "Lato", sans-serif;
 $primary-color: #fff;
 
 @mixin styles ($margin, $padding, $font-size: auto, $font-weight: auto) {
@@ -24,11 +26,13 @@ $primary-color: #fff;
 }
 
 #text {
-  @include styles(0, 20px, 1.5em, 300);
+  @include styles(0, 20px, 1.5em, 400);
+  font-family: $font-family;
 }
 
 #author {
-  @include styles(0, 5px, 1em, 400);
+  @include styles(0, 5px, 1.1em, 500);
+  font-family: $font-family;
 }
 
 #new-quote,

@@ -69,14 +69,14 @@ class QuoteMachine extends React.Component {
                 <div className="container" id="container">
                     <div id="quote-box">
                         <div id="inner-text">
-                            <h2 id="text">{this.state.quote}</h2>
+                            <h2 id="text"><i class="fa fa-quote-left"></i> {this.state.quote} <i class="fa fa-quote-right"></i></h2>
                             <h3 id="author">- {this.state.author}</h3>
                         </div>
                         <div id="quote-buttons">
-                            <Button id="tweet" variant='primary' size="lg">
+                            <Button id="tweet" variant='none' size="lg">
                                 <a id="tweet-quote" href='https://twitter.com/intent/tweet?'><i className="fa fa-twitter"></i></a>
                             </Button>
-                            <Button id="new-quote" variant='primary' size="lg" onClick={this.getQuotes}>
+                            <Button id="new-quote" variant='none' size="lg" onClick={this.getQuotes}>
                                 New Quote
                             </Button>
                         </div>
