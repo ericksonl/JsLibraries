@@ -73,10 +73,10 @@ class QuoteMachine extends React.Component {
                             <h3 id="author">- {this.state.author}</h3>
                         </div>
                         <div id="quote-buttons">
-                            <Button id="tweet" variant='primary' size="lg">
+                            <Button id="tweet" variant='none' size="lg">
                                 <a id="tweet-quote" href='https://twitter.com/intent/tweet?'><i className="fa fa-twitter"></i></a>
                             </Button>
-                            <Button id="new-quote" variant='primary' size="lg" onClick={this.getQuotes}>
+                            <Button id="new-quote" variant='none' size="lg" onClick={this.getQuotes}>
                                 New Quote
                             </Button>
                         </div>
