@@ -16,7 +16,7 @@ const Home = () => {
         <div style={bodyStyle}>
             <div id='links-div'>
                 <h1>Quick Links</h1>
-                <p><a className='link' href="./QuoteMachine/">Random Quote Machine</a></p>
+                <p><a className='link' href="./random-quote-machine/">Random Quote Machine</a></p>
                 <p><a className='link' href="./markdown-previewer/">Markdown Previewer</a></p>
                 <p><a className='link' href="./drum-machine/">Drum Machine</a></p>
                 <p><a className='link' href="./calculator/">Calculator</a></p>
