@@ -6,6 +6,7 @@ import '../styles/quoteMachine.scss';
 class QuoteMachine extends React.Component {
     constructor(props) {
         super(props);
+        document.body.style.transition = 'background-color 2s ease';
         this.state = {
             quote: `Understanding someone's suffering is the best gift you can give another person. Understanding is love's other name. If you don't understand, you can't love.`,
             author: `Thích Nhất Hạnh`,

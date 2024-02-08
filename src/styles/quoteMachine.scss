@@ -3,10 +3,6 @@
 $font-family: "Lato", sans-serif;
 $primary-color: #fff;
 
-body {
-  transition: background-color 2s ease;
-}
-
 @mixin styles ($margin, $padding, $font-size: auto, $font-weight: auto) {
   margin: $margin;
   padding: $padding;
