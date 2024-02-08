@@ -22,8 +22,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "watch:scss": "node-sass -w QuoteMachine/styles.scss QuoteMachine/styles.css"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
