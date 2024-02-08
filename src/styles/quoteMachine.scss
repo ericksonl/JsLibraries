@@ -3,6 +3,10 @@
 $font-family: "Lato", sans-serif;
 $primary-color: #fff;
 
+body {
+  transition: background-color 2s ease;
+}
+
 @mixin styles ($margin, $padding, $font-size: auto, $font-weight: auto) {
   margin: $margin;
   padding: $padding;
@@ -35,8 +39,18 @@ $primary-color: #fff;
   font-family: $font-family;
 }
 
+#text,
+#author {
+  transition: color 2s ease;
+}
+
 #new-quote,
 #tweet-quote {
   @include styles(0, 10px, 1.1em, 500);
   color: $primary-color;
+}
+
+#tweet,
+#new-quote {
+  transition: background-color 2s ease;
 }
