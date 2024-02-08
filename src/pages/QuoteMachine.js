@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
+import $ from 'jquery';
 import '../styles/quoteMachine.scss';
 
 class QuoteMachine extends React.Component {
@@ -36,47 +37,56 @@ class QuoteMachine extends React.Component {
     }
 
     componentDidMount() {
-        // call api or anything
         this.changeColor()
     }
 
     getQuotes() {
-        fetch(`https://api.quotable.io/random`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                this.setState({
-                    quote: data.content,
-                    author: data.author
-                })
-            }
-            )
         this.changeColor();
+        let self = this
+        $('#text, #author').animate({ opacity: 0 }, 500, function () {
+            fetch(`https://api.quotable.io/random`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    self.setState({
+                        quote: data.content,
+                        author: data.author
+                    })
+                })
+                .then(() => {
+                    $('#text, #author').animate({ opacity: 1 }, 500);
+
+                    document.body.animate({
+                        backgroundColor: self.state.backgroundColor
+                    });
+                })
+        })
     }
 
     changeColor() {
         const randomColor = this.state.colors[Math.floor(Math.random() * this.state.colors.length)];
-        document.getElementById('new-quote').style.backgroundColor = randomColor;
-        document.getElementById('tweet').style.backgroundColor = randomColor;
+        this.setState({
+            backgroundColor: randomColor
+        });
+
         document.body.style.backgroundColor = randomColor;
-        document.getElementById('text').style.color = randomColor;
-        document.getElementById('author').style.color = randomColor;
     }
 
     render() {
+        const stateColor = this.state.backgroundColor;
         return (
             <div id="wrapper">
                 <div className="container" id="container">
                     <div id="quote-box">
                         <div id="inner-text">
-                            <h2 id="text"><i class="fa fa-quote-left"></i> {this.state.quote} <i class="fa fa-quote-right"></i></h2>
-                            <h3 id="author">- {this.state.author}</h3>
+                            <h2 id="text" style={{ color: stateColor }}><i class="fa fa-quote-left"></i> {this.state.quote} <i class="fa fa-quote-right"></i></h2>
+                            <h3 id="author" style={{ color: stateColor }}>- {this.state.author}</h3>
                         </div>
                         <div id="quote-buttons">
-                            <Button id="tweet" variant='none' size="lg">
+                            <Button id="tweet" variant='none' size="lg" style={{ backgroundColor: stateColor }}>
                                 <a id="tweet-quote" href='https://twitter.com/intent/tweet?'><i className="fa fa-twitter"></i></a>
                             </Button>
-                            <Button id="new-quote" variant='none' size="lg" onClick={this.getQuotes}>
+                            <Button id="new-quote" variant='none' size="lg" onClick={this.getQuotes} style={{ backgroundColor: stateColor }}>
                                 New Quote
                             </Button>
                         </div>
