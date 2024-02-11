@@ -18,28 +18,31 @@ class Calculator extends React.Component {
     handleClick(e) {
         const targetClass = e.target.className.replace(/ .*/, '')
         const target = e.target
-        console.log('Target', target)
-
         if (targetClass === 'clear') {
             this.setState({
                 formula: '',
                 display: '0'
             })
         } else if (targetClass === 'delete') {
+            if (this.state.display === '0' || this.state.display === 'ERROR' || this.state.showResult) {
+                return
+            }
             this.setState({
+                formula: this.state.formula.length === 1 ? '' : this.state.formula.slice(0, -1),
                 display: this.state.display.length === 1 ? '0' : this.state.display.slice(0, -1)
             })
         } else if (targetClass === 'decimal') {
             if (!this.state.display.includes('.')) {
                 this.setState({
-                    display: this.state.display + target.innerText
+                    display: this.state.display + target.innerText,
+                    formula: this.state.formula + target.innerText
                 })
             }
         } else if (targetClass === 'equals') {
             if (this.state.showResult || ['+', '*', '/', '-', '%'].includes(this.state.display)) {
                 return
             }
-            let formula = this.state.formula + this.state.display
+            let formula = this.state.formula
             let result = Math.round(Function("return " + formula)() * 100000000) / 100000000
             if (result === Infinity || result === -Infinity || isNaN(result)) {
                 this.setState({
@@ -55,28 +58,26 @@ class Calculator extends React.Component {
                 showResult: true
             })
         } else if (targetClass === 'numbers') {
-            if (target.innerText === '00' && (this.state.display === '0' || this.state.display === 'ERROR')) {
+            if (target.innerText === '00' && (this.state.display === '0' || this.state.display === 'ERROR' || this.state.showResult)) {
                 return
-            } else if (this.state.display.length + target.innerText.length > 16) {
+            } else if (this.state.display.length + target.innerText.length > 15) {
                 return
-            } else if (this.state.showResult === true) {
+            } else if (this.state.showResult) {
                 this.setState({
-                    formula: '',
+                    formula: target.innerText,
                     display: target.innerText,
                     showResult: false
                 })
                 return
             } else {
                 this.setState({
-                    display: ['+', '*', '/', '-', '%', '0'].includes(this.state.display) ? target.innerText : this.state.display + target.innerText
+                    display: ['+', '*', '/', '-', '%', '0'].includes(this.state.display) ? target.innerText : this.state.display + target.innerText,
+                    formula: ['0'].includes(this.state.display) ? target.innerText : this.state.formula + target.innerText
                 })
                 return
             }
-        } else if (targetClass === 'operator') {
-            if (this.state.display === Infinity || this.state.display === -Infinity) {
-                return;
-            }
-            if (this.state.showResult === true) {
+        } else if (targetClass === 'operator' && this.state.display !== 'ERROR') {
+            if (this.state.showResult) {
                 this.setState({
                     formula: this.state.display + target.innerText,
                     display: target.innerText,
@@ -84,28 +85,46 @@ class Calculator extends React.Component {
                 })
                 return
             }
-            // if (['+', '*', '/', '-'].includes(this.state.display)) {
-            //     return
-            // }
-            this.setState({
-                formula: this.state.formula + this.state.display + target.innerText,
-                display: target.innerText
-            })
+            const lastChar = this.state.formula.slice(-1)
+            if (['+', '*', '/', '-', '%'].includes(lastChar)) {
+                if (lastChar !== '-' && this.state.setOp && target.innerText === '-') {
+                    this.setState({
+                        formula: this.state.formula + target.innerText,
+                        display: target.innerText,
+                        setNeg: true,
+                        setOp: false
+                    })
+                    return
+                } else if (lastChar === '-' && this.state.setNeg && target.innerText !== '-') {
+                    this.setState({
+                        formula: this.state.formula.slice(0, -2) + target.innerText,
+                        display: target.innerText,
+                        setNeg: false,
+                        setOp: true
+                    })
+                    return
+                } else if (lastChar === '-' && this.state.setNeg && target.innerText === '-') {
+                    return
+                } else {
+                    this.setState({
+                        formula: this.state.formula.slice(0, -1) + target.innerText,
+                        display: target.innerText
+                    })
+                }
+            } else {
+                this.setState({
+                    formula: this.state.formula + target.innerText,
+                    display: target.innerText,
+                    setOp: true
+                })
+                return
+            }
         } else {
             this.setState({
                 display: 'ERROR'
             })
         }
     }
-
-    // sum = () => {
-    //     let formula = this.state.formula + this.state.display
-    //     console.log('Formula', formula)
-    //     console.log('Formula State', this.state.formula, 'Display State', this.state.display)
-    //     console.log('Together', this.state.formula + this.state.display)
-    //     let result = Math.round(Function("return " + formula)() * 100000000) / 100000000
-    //     return result
-    // }
 
     render() {
         return (
