@@ -1,13 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
 $clock-font: "Quicksand", sans-serif;
-$primary-color: white;
-$accent-color: #187D9B;
-$secondary-color: #DE8423;
 
 #calculator-wrapper {
     font-family: $clock-font;
-    
     width: 300px;
     margin: 100px auto;
     padding: 20px;
