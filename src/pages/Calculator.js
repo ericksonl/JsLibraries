@@ -3,8 +3,6 @@ import Button from 'react-bootstrap/Button'
 import CalcBtnComponents from '../components/CalcBtnComponents'
 import '../styles/calculator.scss'
 
-document.body.style.cssText = 'background: linear-gradient(180deg, rgb(255, 230, 112) 10.4%, rgb(255, 100, 100) 43.8%, rgb(0, 93, 219) 105.8%); background-repeat: no-repeat; background-attachment: fixed'
-
 class Calculator extends React.Component {
     constructor(props) {
         super(props)
@@ -14,6 +12,11 @@ class Calculator extends React.Component {
         }
         this.handleClick = this.handleClick.bind(this)
     }
+
+    componentDidMount() {
+        document.body.style.cssText = 'background: linear-gradient(180deg, rgb(255, 230, 112) 10.4%, rgb(255, 100, 100) 43.8%, rgb(0, 93, 219) 105.8%); background-repeat: no-repeat; background-attachment: fixed'
+    }
+
 
     handleClick(e) {
         const targetClass = e.target.className.replace(/ .*/, '')
