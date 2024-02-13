@@ -9,6 +9,10 @@
     padding: 0 0 60px 0;
 }
 
+#loading {
+    display: none;
+}
+
 #timer {
     text-align: center;
 }
@@ -29,6 +33,10 @@
 #clock-display>Button {
     font-size: 2rem;
     margin-bottom: 45px;
+}
+
+Button>i {
+    pointer-events: none;
 }
 
 #time-left {
