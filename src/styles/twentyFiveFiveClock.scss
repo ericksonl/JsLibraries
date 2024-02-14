@@ -82,6 +82,13 @@ Button>i {
     font-size: 2.8rem;
 }
 
-#clock-wrapper>div>div>Button {
-    background-color: none;
+#time-controls>Button:focus,
+#time-controls>Button:active,
+#time-controls>Button:disabled,
+#start_stop:focus,
+#start_stop:active,
+#reset:focus,
+#reset:active {
+    border: 2px solid transparent !important;
+    outline-offset: 2px;
 }
